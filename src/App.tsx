@@ -2,6 +2,24 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+type Student = {
+  id: number,
+  name: string,
+};
+
+function immutableDemo () {
+  const student = {id: 1, name: "John"};
+  const arr1: Student[] = [student];
+
+  const arr2: Student[] = [];
+  for (const student of arr1) {
+    arr2.push({
+      id: student.id,
+      name: student.name
+    });
+  }
+}
+
 function basicTypes (): void {
   const number = 1;
 
@@ -169,10 +187,18 @@ function spreadOperator () {
   arrTotal.concat(arr).concat(arr2);
 }
 
+function eqeqeqDemo () {
+  // @ts-ignore
+  console.log(1 == "1");
+  // @ts-ignore
+  console.log(1 === "1");
+}
+
 function App() {
   // basicTypes();
   // objectTypes();
-  arrays();
+  // arrays();
+  eqeqeqDemo();
 
   return (
     <div className="App">
